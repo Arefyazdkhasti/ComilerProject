@@ -1,4 +1,4 @@
-grammar compiler;
+grammar myLexer;
 
 WS  : [ \t\r\n]+ -> skip ;
 
@@ -42,8 +42,15 @@ SEMICOLON : ';';
 COMMA: ',';
 DOT : '.';
 BRACKET : '[]';
-BRACKET2 : '[ ]';
 PAREBTISES : '()';
+ACULAD : '{}';
+BRACKET2 : '[ ]';
+OPENBRACKET : '[';
+CLOSEBRACKET : ']';
+OPENBPARENTISIS : '(';
+CLOSEPARENTISIS : ')';
+OPENACULAD : '{';
+CLOSEACULAD : '}';
 COMMENT : '//';
 OPEN_COMMENT : '/*';
 CLOSE_COMMENT : '*/';
@@ -66,6 +73,10 @@ Decimal_num : [0-9]+ '.' ('0'..'9')* ('e' | 'E')? (PLUS|MINUS)? ('0'..'9')*; //E
 lexeme : (T_INT| T_DOUBLE| T_STRING| T_BOOLEAN
          | VOID| NULL| THIS| FOR| WHILE| IF| ELSE
          | RETURN| BREAK| NEW| NEWARRAY| PRINT| READINTEGER| READLINE
+         | UNDESCORE| PLUS| MINUS| STAR| SLASH| MOD| LESS_SIGN|LESS_EQUAL
+         | MORE_SIGN| MORE_EQUAL| EQUAL| EQUALEQUAL| NOTEQUAL| AND| OR| NOT
+         | SEMICOLON| COMMA| DOT| BRACKET| BRACKET2| OPENBRACKET| CLOSEBRACKET
+         |OPENBPARENTISIS | CLOSEPARENTISIS| OPENACULAD| CLOSEACULAD
          | ID| STRING| CONST_NUMBER| Decimal_num)+;
 
 
