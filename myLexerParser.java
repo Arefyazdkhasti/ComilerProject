@@ -24,8 +24,8 @@ public class myLexerParser extends Parser {
 		SEMICOLON=36, COMMA=37, DOT=38, BRACKET=39, PAREBTISES=40, ACULAD=41, 
 		BRACKET2=42, OPENBRACKET=43, CLOSEBRACKET=44, OPENBPARENTISIS=45, CLOSEPARENTISIS=46, 
 		OPENACULAD=47, CLOSEACULAD=48, COMMENT=49, OPEN_COMMENT=50, CLOSE_COMMENT=51, 
-		EPSILON=52, ID=53, STRING=54, MULTI_LINE_COMMENT=55, ONE_LINE_COMMENT=56, 
-		CONST_NUMBER=57, Decimal_num=58;
+		FALSE=52, TRUE=53, EPSILON=54, ID=55, STRING=56, MULTI_LINE_COMMENT=57, 
+		ONE_LINE_COMMENT=58, CONST_NUMBER=59, Decimal_num=60;
 	public static final int
 		RULE_lexeme = 0;
 	private static String[] makeRuleNames() {
@@ -43,7 +43,7 @@ public class myLexerParser extends Parser {
 			"'+'", "'-'", "'*'", "'/'", "'%'", "'<'", "'<='", "'>'", "'=>'", "'='", 
 			"'=='", "'!='", "'&&'", "'||'", "'!'", "';'", "','", "'.'", "'[]'", "'()'", 
 			"'{}'", "'[ ]'", "'['", "']'", "'('", "')'", "'{'", "'}'", "'//'", "'/*'", 
-			"'*/'", "' '"
+			"'*/'", null, null, "' '"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -56,8 +56,9 @@ public class myLexerParser extends Parser {
 			"EQUAL", "EQUALEQUAL", "NOTEQUAL", "AND", "OR", "NOT", "SEMICOLON", "COMMA", 
 			"DOT", "BRACKET", "PAREBTISES", "ACULAD", "BRACKET2", "OPENBRACKET", 
 			"CLOSEBRACKET", "OPENBPARENTISIS", "CLOSEPARENTISIS", "OPENACULAD", "CLOSEACULAD", 
-			"COMMENT", "OPEN_COMMENT", "CLOSE_COMMENT", "EPSILON", "ID", "STRING", 
-			"MULTI_LINE_COMMENT", "ONE_LINE_COMMENT", "CONST_NUMBER", "Decimal_num"
+			"COMMENT", "OPEN_COMMENT", "CLOSE_COMMENT", "FALSE", "TRUE", "EPSILON", 
+			"ID", "STRING", "MULTI_LINE_COMMENT", "ONE_LINE_COMMENT", "CONST_NUMBER", 
+			"Decimal_num"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -268,6 +269,14 @@ public class myLexerParser extends Parser {
 		public TerminalNode BRACKET2(int i) {
 			return getToken(myLexerParser.BRACKET2, i);
 		}
+		public List<TerminalNode> PAREBTISES() { return getTokens(myLexerParser.PAREBTISES); }
+		public TerminalNode PAREBTISES(int i) {
+			return getToken(myLexerParser.PAREBTISES, i);
+		}
+		public List<TerminalNode> ACULAD() { return getTokens(myLexerParser.ACULAD); }
+		public TerminalNode ACULAD(int i) {
+			return getToken(myLexerParser.ACULAD, i);
+		}
 		public List<TerminalNode> OPENBRACKET() { return getTokens(myLexerParser.OPENBRACKET); }
 		public TerminalNode OPENBRACKET(int i) {
 			return getToken(myLexerParser.OPENBRACKET, i);
@@ -291,6 +300,26 @@ public class myLexerParser extends Parser {
 		public List<TerminalNode> CLOSEACULAD() { return getTokens(myLexerParser.CLOSEACULAD); }
 		public TerminalNode CLOSEACULAD(int i) {
 			return getToken(myLexerParser.CLOSEACULAD, i);
+		}
+		public List<TerminalNode> COMMENT() { return getTokens(myLexerParser.COMMENT); }
+		public TerminalNode COMMENT(int i) {
+			return getToken(myLexerParser.COMMENT, i);
+		}
+		public List<TerminalNode> OPEN_COMMENT() { return getTokens(myLexerParser.OPEN_COMMENT); }
+		public TerminalNode OPEN_COMMENT(int i) {
+			return getToken(myLexerParser.OPEN_COMMENT, i);
+		}
+		public List<TerminalNode> CLOSE_COMMENT() { return getTokens(myLexerParser.CLOSE_COMMENT); }
+		public TerminalNode CLOSE_COMMENT(int i) {
+			return getToken(myLexerParser.CLOSE_COMMENT, i);
+		}
+		public List<TerminalNode> FALSE() { return getTokens(myLexerParser.FALSE); }
+		public TerminalNode FALSE(int i) {
+			return getToken(myLexerParser.FALSE, i);
+		}
+		public List<TerminalNode> TRUE() { return getTokens(myLexerParser.TRUE); }
+		public TerminalNode TRUE(int i) {
+			return getToken(myLexerParser.TRUE, i);
 		}
 		public List<TerminalNode> ID() { return getTokens(myLexerParser.ID); }
 		public TerminalNode ID(int i) {
@@ -337,7 +366,7 @@ public class myLexerParser extends Parser {
 				{
 				setState(2);
 				_la = _input.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T_INT) | (1L << T_DOUBLE) | (1L << T_STRING) | (1L << T_BOOLEAN) | (1L << VOID) | (1L << NULL) | (1L << THIS) | (1L << FOR) | (1L << WHILE) | (1L << IF) | (1L << ELSE) | (1L << RETURN) | (1L << BREAK) | (1L << NEW) | (1L << NEWARRAY) | (1L << PRINT) | (1L << READINTEGER) | (1L << READLINE) | (1L << UNDESCORE) | (1L << PLUS) | (1L << MINUS) | (1L << STAR) | (1L << SLASH) | (1L << MOD) | (1L << LESS_SIGN) | (1L << LESS_EQUAL) | (1L << MORE_SIGN) | (1L << MORE_EQUAL) | (1L << EQUAL) | (1L << EQUALEQUAL) | (1L << NOTEQUAL) | (1L << AND) | (1L << OR) | (1L << NOT) | (1L << SEMICOLON) | (1L << COMMA) | (1L << DOT) | (1L << BRACKET) | (1L << BRACKET2) | (1L << OPENBRACKET) | (1L << CLOSEBRACKET) | (1L << OPENBPARENTISIS) | (1L << CLOSEPARENTISIS) | (1L << OPENACULAD) | (1L << CLOSEACULAD) | (1L << ID) | (1L << STRING) | (1L << CONST_NUMBER) | (1L << Decimal_num))) != 0)) ) {
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T_INT) | (1L << T_DOUBLE) | (1L << T_STRING) | (1L << T_BOOLEAN) | (1L << VOID) | (1L << NULL) | (1L << THIS) | (1L << FOR) | (1L << WHILE) | (1L << IF) | (1L << ELSE) | (1L << RETURN) | (1L << BREAK) | (1L << NEW) | (1L << NEWARRAY) | (1L << PRINT) | (1L << READINTEGER) | (1L << READLINE) | (1L << UNDESCORE) | (1L << PLUS) | (1L << MINUS) | (1L << STAR) | (1L << SLASH) | (1L << MOD) | (1L << LESS_SIGN) | (1L << LESS_EQUAL) | (1L << MORE_SIGN) | (1L << MORE_EQUAL) | (1L << EQUAL) | (1L << EQUALEQUAL) | (1L << NOTEQUAL) | (1L << AND) | (1L << OR) | (1L << NOT) | (1L << SEMICOLON) | (1L << COMMA) | (1L << DOT) | (1L << BRACKET) | (1L << PAREBTISES) | (1L << ACULAD) | (1L << BRACKET2) | (1L << OPENBRACKET) | (1L << CLOSEBRACKET) | (1L << OPENBPARENTISIS) | (1L << CLOSEPARENTISIS) | (1L << OPENACULAD) | (1L << CLOSEACULAD) | (1L << COMMENT) | (1L << OPEN_COMMENT) | (1L << CLOSE_COMMENT) | (1L << FALSE) | (1L << TRUE) | (1L << ID) | (1L << STRING) | (1L << CONST_NUMBER) | (1L << Decimal_num))) != 0)) ) {
 				_errHandler.recoverInline(this);
 				}
 				else {
@@ -350,7 +379,7 @@ public class myLexerParser extends Parser {
 				setState(5); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T_INT) | (1L << T_DOUBLE) | (1L << T_STRING) | (1L << T_BOOLEAN) | (1L << VOID) | (1L << NULL) | (1L << THIS) | (1L << FOR) | (1L << WHILE) | (1L << IF) | (1L << ELSE) | (1L << RETURN) | (1L << BREAK) | (1L << NEW) | (1L << NEWARRAY) | (1L << PRINT) | (1L << READINTEGER) | (1L << READLINE) | (1L << UNDESCORE) | (1L << PLUS) | (1L << MINUS) | (1L << STAR) | (1L << SLASH) | (1L << MOD) | (1L << LESS_SIGN) | (1L << LESS_EQUAL) | (1L << MORE_SIGN) | (1L << MORE_EQUAL) | (1L << EQUAL) | (1L << EQUALEQUAL) | (1L << NOTEQUAL) | (1L << AND) | (1L << OR) | (1L << NOT) | (1L << SEMICOLON) | (1L << COMMA) | (1L << DOT) | (1L << BRACKET) | (1L << BRACKET2) | (1L << OPENBRACKET) | (1L << CLOSEBRACKET) | (1L << OPENBPARENTISIS) | (1L << CLOSEPARENTISIS) | (1L << OPENACULAD) | (1L << CLOSEACULAD) | (1L << ID) | (1L << STRING) | (1L << CONST_NUMBER) | (1L << Decimal_num))) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T_INT) | (1L << T_DOUBLE) | (1L << T_STRING) | (1L << T_BOOLEAN) | (1L << VOID) | (1L << NULL) | (1L << THIS) | (1L << FOR) | (1L << WHILE) | (1L << IF) | (1L << ELSE) | (1L << RETURN) | (1L << BREAK) | (1L << NEW) | (1L << NEWARRAY) | (1L << PRINT) | (1L << READINTEGER) | (1L << READLINE) | (1L << UNDESCORE) | (1L << PLUS) | (1L << MINUS) | (1L << STAR) | (1L << SLASH) | (1L << MOD) | (1L << LESS_SIGN) | (1L << LESS_EQUAL) | (1L << MORE_SIGN) | (1L << MORE_EQUAL) | (1L << EQUAL) | (1L << EQUALEQUAL) | (1L << NOTEQUAL) | (1L << AND) | (1L << OR) | (1L << NOT) | (1L << SEMICOLON) | (1L << COMMA) | (1L << DOT) | (1L << BRACKET) | (1L << PAREBTISES) | (1L << ACULAD) | (1L << BRACKET2) | (1L << OPENBRACKET) | (1L << CLOSEBRACKET) | (1L << OPENBPARENTISIS) | (1L << CLOSEPARENTISIS) | (1L << OPENACULAD) | (1L << CLOSEACULAD) | (1L << COMMENT) | (1L << OPEN_COMMENT) | (1L << CLOSE_COMMENT) | (1L << FALSE) | (1L << TRUE) | (1L << ID) | (1L << STRING) | (1L << CONST_NUMBER) | (1L << Decimal_num))) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -365,10 +394,9 @@ public class myLexerParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3<\n\4\2\t\2\3\2\6"+
-		"\2\6\n\2\r\2\16\2\7\3\2\2\2\3\2\2\3\6\2\4),\62\678;<\2\t\2\5\3\2\2\2\4"+
-		"\6\t\2\2\2\5\4\3\2\2\2\6\7\3\2\2\2\7\5\3\2\2\2\7\b\3\2\2\2\b\3\3\2\2\2"+
-		"\3\7";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3>\n\4\2\t\2\3\2\6"+
+		"\2\6\n\2\r\2\16\2\7\3\2\2\2\3\2\2\3\5\2\4\679:=>\2\t\2\5\3\2\2\2\4\6\t"+
+		"\2\2\2\5\4\3\2\2\2\6\7\3\2\2\2\7\5\3\2\2\2\7\b\3\2\2\2\b\3\3\2\2\2\3\7";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
