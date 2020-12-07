@@ -5,7 +5,6 @@ import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
-
 import static org.antlr.v4.runtime.CharStreams.fromFileName;
 
 public class start {
@@ -49,9 +48,15 @@ public class start {
             case myLexerLexer.FALSE:
                 return "T_BOOLEAN";
             case myLexerLexer.CONST_NUMBER:
-                return "T_INT";
+                return "Const_Number";
             case myLexerLexer.Decimal_num:
-                return "T_DECIMAL";
+                return "Decimal_Number";
+            case myLexerLexer.T_INT:
+                return "T_INT";
+            case myLexerLexer.T_DOUBLE:
+                return "T_DOUBLE";
+            case myLexerLexer.Undifiend_Tokens:
+                return "Undefined_Tokens";
             default:
                 return "Default";
         }
