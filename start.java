@@ -1,10 +1,6 @@
-import jdk.nashorn.internal.parser.TokenType;
 import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.ParseTreeListener;
-import org.antlr.v4.runtime.tree.ParseTreeWalker;
+
 import static org.antlr.v4.runtime.CharStreams.fromFileName;
 
 public class start {
