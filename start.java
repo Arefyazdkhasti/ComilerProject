@@ -14,47 +14,73 @@ public class start {
             return;
         }
         myLexerLexer lexer = new myLexerLexer(cs);  //instantiate a lexer
-        Token token = lexer.nextToken();
-        //CommonTokenStream tokens = new CommonTokenStream(lexer); //scan stream for tokens
-        //myLexerParser parser = new myLexerParser(tokens);  //parse the tokens
-        //ParseTree tree = parser.lexeme(); // parse the content and get the tree
-        //ParseTreeListener listener = new myLexerBaseListener();
-        //ParseTreeWalker walker = new ParseTreeWalker();
-        //walker.walk(listener, tree);
+        Token token = lexer.nextToken(); //get first token
+
         System.out.println("Tokens");
+        //check for end of file
         while (token.getType() != Token.EOF) {
-            String type=getTokenType(token.getType());
-            if(!type.equals("Default")) {
-                System.out.println(getTokenType(token.getType()) + " " + token.getText());
-            }else{
+            String type = getTokenType(token.getType());
+            if (!type.equals("Default")) {
+                if (type.equals("T_ID")) {
+                    //check if id has more the 31 char
+                    if (token.getText().length() > 31) {
+                        System.out.println("Error identifier with more than 31 character doesn't supported!");
+                    } else {
+                        System.out.println(getTokenType(token.getType()) + " => " + token.getText());
+                    }
+                }else {
+                    System.out.println(getTokenType(token.getType()) + " => " + token.getText());
+                }
+            } else {
                 System.out.println(token.getText());
             }
-            token = lexer.nextToken();
+            token = lexer.nextToken(); //get next token
         }
     }
 
-    private static String getTokenType (int tokenType){
-        switch (tokenType){
+    //return token types
+    private static String getTokenType(int tokenType) {
+        switch (tokenType) {
             case myLexerLexer.ID:
                 return "T_ID";
             case myLexerLexer.STRING:
                 return "T_STRING";
-            case myLexerLexer.T_BOOLEAN:
             case myLexerLexer.TRUE:
             case myLexerLexer.FALSE:
                 return "T_BOOLEAN";
+            case myLexerLexer.T_BOOLEAN:
+                return "Boolean";
             case myLexerLexer.CONST_NUMBER:
-                return "Const_Number";
             case myLexerLexer.Decimal_num:
-                return "Decimal_Number";
-            case myLexerLexer.T_INT:
                 return "T_INT";
+            case myLexerLexer.T_INT:
+                return "int";
             case myLexerLexer.T_DOUBLE:
-                return "T_DOUBLE";
+                return "double";
             case myLexerLexer.Undifiend_Tokens:
                 return "Undefined_Tokens";
+            case myLexerLexer.ONE_LINE_COMMENT:
+                return "one line Comment";
+            case myLexerLexer.MULTI_LINE_COMMENT:
+                return "multiLine Comment";
             default:
                 return "Default";
         }
     }
 }
+
+//CommonTokenStream tokens = new CommonTokenStream(lexer); //scan stream for tokens
+//myLexerParser parser = new myLexerParser(tokens);  //parse the tokens
+//ParseTree tree = parser.lexeme(); // parse the content and get the tree
+//ParseTreeListener listener = new myLexerBaseListener();
+//ParseTreeWalker walker = new ParseTreeWalker();
+//walker.walk(listener, tree);
+
+/*
+case myLexerLexer.CONST_NUMBER:
+      return "Const_Number";
+  case myLexerLexer.Decimal_num:
+      return "Decimal_Number";
+  case myLexerLexer.T_INT:
+      return "T_INT";
+      */
