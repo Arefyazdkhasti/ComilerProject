@@ -25,8 +25,7 @@ public class myLexerParser extends Parser {
 		CLOSEPARENTISIS=42, OPENACULAD=43, CLOSEACULAD=44, COMMENT=45, OPEN_COMMENT=46, 
 		CLOSE_COMMENT=47, QUOTAION=48, FULL_QUOTAION=49, FALSE=50, TRUE=51, EPSILON=52, 
 		ID=53, STRING=54, MULTI_LINE_COMMENT=55, ONE_LINE_COMMENT=56, CONST_NUMBER=57, 
-		Decimal_num=58, Undifiend_Tokens=59, BRACKET=60, BRACKET2=61, PAREBTISES=62, 
-		ACULAD=63;
+		Decimal_num=58, BRACKET=59;
 	public static final int
 		RULE_lexeme = 0, RULE_decl = 1, RULE_variableDecl = 2, RULE_variable = 3, 
 		RULE_type = 4, RULE_functionDecl = 5, RULE_formals = 6, RULE_protoType = 7, 
@@ -67,7 +66,7 @@ public class myLexerParser extends Parser {
 			"OPENACULAD", "CLOSEACULAD", "COMMENT", "OPEN_COMMENT", "CLOSE_COMMENT", 
 			"QUOTAION", "FULL_QUOTAION", "FALSE", "TRUE", "EPSILON", "ID", "STRING", 
 			"MULTI_LINE_COMMENT", "ONE_LINE_COMMENT", "CONST_NUMBER", "Decimal_num", 
-			"Undifiend_Tokens", "BRACKET", "BRACKET2", "PAREBTISES", "ACULAD"
+			"BRACKET"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -129,10 +128,6 @@ public class myLexerParser extends Parser {
 		public List<TerminalNode> MULTI_LINE_COMMENT() { return getTokens(myLexerParser.MULTI_LINE_COMMENT); }
 		public TerminalNode MULTI_LINE_COMMENT(int i) {
 			return getToken(myLexerParser.MULTI_LINE_COMMENT, i);
-		}
-		public List<TerminalNode> Undifiend_Tokens() { return getTokens(myLexerParser.Undifiend_Tokens); }
-		public TerminalNode Undifiend_Tokens(int i) {
-			return getToken(myLexerParser.Undifiend_Tokens, i);
 		}
 		public List<TerminalNode> ID() { return getTokens(myLexerParser.ID); }
 		public TerminalNode ID(int i) {
@@ -298,22 +293,6 @@ public class myLexerParser extends Parser {
 		public TerminalNode DOT(int i) {
 			return getToken(myLexerParser.DOT, i);
 		}
-		public List<TerminalNode> BRACKET() { return getTokens(myLexerParser.BRACKET); }
-		public TerminalNode BRACKET(int i) {
-			return getToken(myLexerParser.BRACKET, i);
-		}
-		public List<TerminalNode> BRACKET2() { return getTokens(myLexerParser.BRACKET2); }
-		public TerminalNode BRACKET2(int i) {
-			return getToken(myLexerParser.BRACKET2, i);
-		}
-		public List<TerminalNode> PAREBTISES() { return getTokens(myLexerParser.PAREBTISES); }
-		public TerminalNode PAREBTISES(int i) {
-			return getToken(myLexerParser.PAREBTISES, i);
-		}
-		public List<TerminalNode> ACULAD() { return getTokens(myLexerParser.ACULAD); }
-		public TerminalNode ACULAD(int i) {
-			return getToken(myLexerParser.ACULAD, i);
-		}
 		public List<TerminalNode> OPENBRACKET() { return getTokens(myLexerParser.OPENBRACKET); }
 		public TerminalNode OPENBRACKET(int i) {
 			return getToken(myLexerParser.OPENBRACKET, i);
@@ -395,7 +374,7 @@ public class myLexerParser extends Parser {
 				{
 				setState(42);
 				_la = _input.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T_INT) | (1L << T_DOUBLE) | (1L << T_STRING) | (1L << T_BOOLEAN) | (1L << VOID) | (1L << NULL) | (1L << THIS) | (1L << FOR) | (1L << WHILE) | (1L << IF) | (1L << ELSE) | (1L << RETURN) | (1L << BREAK) | (1L << NEW) | (1L << NEWARRAY) | (1L << PRINT) | (1L << READINTEGER) | (1L << READLINE) | (1L << UNDESCORE) | (1L << PLUS) | (1L << MINUS) | (1L << STAR) | (1L << SLASH) | (1L << MOD) | (1L << LESS_SIGN) | (1L << LESS_EQUAL) | (1L << MORE_SIGN) | (1L << MORE_EQUAL) | (1L << EQUAL) | (1L << EQUALEQUAL) | (1L << NOTEQUAL) | (1L << AND) | (1L << OR) | (1L << NOT) | (1L << SEMICOLON) | (1L << COMMA) | (1L << DOT) | (1L << OPENBRACKET) | (1L << CLOSEBRACKET) | (1L << OPENBPARENTISIS) | (1L << CLOSEPARENTISIS) | (1L << OPENACULAD) | (1L << CLOSEACULAD) | (1L << COMMENT) | (1L << OPEN_COMMENT) | (1L << CLOSE_COMMENT) | (1L << QUOTAION) | (1L << FULL_QUOTAION) | (1L << FALSE) | (1L << TRUE) | (1L << ID) | (1L << STRING) | (1L << MULTI_LINE_COMMENT) | (1L << ONE_LINE_COMMENT) | (1L << CONST_NUMBER) | (1L << Decimal_num) | (1L << Undifiend_Tokens) | (1L << BRACKET) | (1L << BRACKET2) | (1L << PAREBTISES) | (1L << ACULAD))) != 0)) ) {
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T_INT) | (1L << T_DOUBLE) | (1L << T_STRING) | (1L << T_BOOLEAN) | (1L << VOID) | (1L << NULL) | (1L << THIS) | (1L << FOR) | (1L << WHILE) | (1L << IF) | (1L << ELSE) | (1L << RETURN) | (1L << BREAK) | (1L << NEW) | (1L << NEWARRAY) | (1L << PRINT) | (1L << READINTEGER) | (1L << READLINE) | (1L << UNDESCORE) | (1L << PLUS) | (1L << MINUS) | (1L << STAR) | (1L << SLASH) | (1L << MOD) | (1L << LESS_SIGN) | (1L << LESS_EQUAL) | (1L << MORE_SIGN) | (1L << MORE_EQUAL) | (1L << EQUAL) | (1L << EQUALEQUAL) | (1L << NOTEQUAL) | (1L << AND) | (1L << OR) | (1L << NOT) | (1L << SEMICOLON) | (1L << COMMA) | (1L << DOT) | (1L << OPENBRACKET) | (1L << CLOSEBRACKET) | (1L << OPENBPARENTISIS) | (1L << CLOSEPARENTISIS) | (1L << OPENACULAD) | (1L << CLOSEACULAD) | (1L << COMMENT) | (1L << OPEN_COMMENT) | (1L << CLOSE_COMMENT) | (1L << QUOTAION) | (1L << FULL_QUOTAION) | (1L << FALSE) | (1L << TRUE) | (1L << ID) | (1L << STRING) | (1L << MULTI_LINE_COMMENT) | (1L << ONE_LINE_COMMENT) | (1L << CONST_NUMBER) | (1L << Decimal_num))) != 0)) ) {
 				_errHandler.recoverInline(this);
 				}
 				else {
@@ -408,7 +387,7 @@ public class myLexerParser extends Parser {
 				setState(45); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T_INT) | (1L << T_DOUBLE) | (1L << T_STRING) | (1L << T_BOOLEAN) | (1L << VOID) | (1L << NULL) | (1L << THIS) | (1L << FOR) | (1L << WHILE) | (1L << IF) | (1L << ELSE) | (1L << RETURN) | (1L << BREAK) | (1L << NEW) | (1L << NEWARRAY) | (1L << PRINT) | (1L << READINTEGER) | (1L << READLINE) | (1L << UNDESCORE) | (1L << PLUS) | (1L << MINUS) | (1L << STAR) | (1L << SLASH) | (1L << MOD) | (1L << LESS_SIGN) | (1L << LESS_EQUAL) | (1L << MORE_SIGN) | (1L << MORE_EQUAL) | (1L << EQUAL) | (1L << EQUALEQUAL) | (1L << NOTEQUAL) | (1L << AND) | (1L << OR) | (1L << NOT) | (1L << SEMICOLON) | (1L << COMMA) | (1L << DOT) | (1L << OPENBRACKET) | (1L << CLOSEBRACKET) | (1L << OPENBPARENTISIS) | (1L << CLOSEPARENTISIS) | (1L << OPENACULAD) | (1L << CLOSEACULAD) | (1L << COMMENT) | (1L << OPEN_COMMENT) | (1L << CLOSE_COMMENT) | (1L << QUOTAION) | (1L << FULL_QUOTAION) | (1L << FALSE) | (1L << TRUE) | (1L << ID) | (1L << STRING) | (1L << MULTI_LINE_COMMENT) | (1L << ONE_LINE_COMMENT) | (1L << CONST_NUMBER) | (1L << Decimal_num) | (1L << Undifiend_Tokens) | (1L << BRACKET) | (1L << BRACKET2) | (1L << PAREBTISES) | (1L << ACULAD))) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T_INT) | (1L << T_DOUBLE) | (1L << T_STRING) | (1L << T_BOOLEAN) | (1L << VOID) | (1L << NULL) | (1L << THIS) | (1L << FOR) | (1L << WHILE) | (1L << IF) | (1L << ELSE) | (1L << RETURN) | (1L << BREAK) | (1L << NEW) | (1L << NEWARRAY) | (1L << PRINT) | (1L << READINTEGER) | (1L << READLINE) | (1L << UNDESCORE) | (1L << PLUS) | (1L << MINUS) | (1L << STAR) | (1L << SLASH) | (1L << MOD) | (1L << LESS_SIGN) | (1L << LESS_EQUAL) | (1L << MORE_SIGN) | (1L << MORE_EQUAL) | (1L << EQUAL) | (1L << EQUALEQUAL) | (1L << NOTEQUAL) | (1L << AND) | (1L << OR) | (1L << NOT) | (1L << SEMICOLON) | (1L << COMMA) | (1L << DOT) | (1L << OPENBRACKET) | (1L << CLOSEBRACKET) | (1L << OPENBPARENTISIS) | (1L << CLOSEPARENTISIS) | (1L << OPENACULAD) | (1L << CLOSEACULAD) | (1L << COMMENT) | (1L << OPEN_COMMENT) | (1L << CLOSE_COMMENT) | (1L << QUOTAION) | (1L << FULL_QUOTAION) | (1L << FALSE) | (1L << TRUE) | (1L << ID) | (1L << STRING) | (1L << MULTI_LINE_COMMENT) | (1L << ONE_LINE_COMMENT) | (1L << CONST_NUMBER) | (1L << Decimal_num))) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -2200,7 +2179,7 @@ public class myLexerParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3A\u011f\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3=\u011f\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\3\2\6\2.\n\2\r\2\16\2/\3\3\3"+
@@ -2221,7 +2200,7 @@ public class myLexerParser extends Parser {
 		"\13\22\3\23\3\23\3\23\3\23\3\23\3\24\3\24\3\24\3\24\5\24\u0107\n\24\3"+
 		"\25\3\25\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3"+
 		"\26\3\26\3\26\3\26\3\26\3\26\5\26\u011d\n\26\3\26\2\4\n\"\27\2\4\6\b\n"+
-		"\f\16\20\22\24\26\30\32\34\36 \"$&(*\2\3\4\2\4\65\67A\2\u0143\2-\3\2\2"+
+		"\f\16\20\22\24\26\30\32\34\36 \"$&(*\2\3\4\2\4\65\67<\2\u0143\2-\3\2\2"+
 		"\2\4\63\3\2\2\2\6\65\3\2\2\2\b\67\3\2\2\2\n@\3\2\2\2\fY\3\2\2\2\16g\3"+
 		"\2\2\2\20v\3\2\2\2\22x\3\2\2\2\24\u0092\3\2\2\2\26\u0094\3\2\2\2\30\u009d"+
 		"\3\2\2\2\32\u00a3\3\2\2\2\34\u00b1\3\2\2\2\36\u00b3\3\2\2\2 \u00b8\3\2"+
@@ -2230,7 +2209,7 @@ public class myLexerParser extends Parser {
 		"\2\2\61\64\5\6\4\2\62\64\5\f\7\2\63\61\3\2\2\2\63\62\3\2\2\2\64\5\3\2"+
 		"\2\2\65\66\5\b\5\2\66\7\3\2\2\2\678\5\n\6\289\7\67\2\29\t\3\2\2\2:;\b"+
 		"\6\1\2;A\7\4\2\2<A\7\5\2\2=A\7\7\2\2>A\7\6\2\2?A\7\67\2\2@:\3\2\2\2@<"+
-		"\3\2\2\2@=\3\2\2\2@>\3\2\2\2@?\3\2\2\2AF\3\2\2\2BC\f\3\2\2CE\7>\2\2DB"+
+		"\3\2\2\2@=\3\2\2\2@>\3\2\2\2@?\3\2\2\2AF\3\2\2\2BC\f\3\2\2CE\7=\2\2DB"+
 		"\3\2\2\2EH\3\2\2\2FD\3\2\2\2FG\3\2\2\2G\13\3\2\2\2HF\3\2\2\2IJ\5\n\6\2"+
 		"JK\7\67\2\2KL\7+\2\2LM\5\16\b\2MN\7,\2\2NO\5\22\n\2OP\7&\2\2PZ\3\2\2\2"+
 		"QR\7\b\2\2RS\7\67\2\2ST\7+\2\2TU\5\16\b\2UV\7,\2\2VW\5\22\n\2WX\7&\2\2"+

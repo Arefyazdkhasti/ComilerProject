@@ -57,8 +57,8 @@ public class start {
                 return "int";
             case myLexerLexer.T_DOUBLE:
                 return "double";
-            case myLexerLexer.Undifiend_Tokens:
-                return "Undefined_Tokens";
+            /*case myLexerLexer.Undifiend_Tokens:
+                return "Undefined_Tokens";*/
             case myLexerLexer.ONE_LINE_COMMENT:
                 return "one line Comment";
             case myLexerLexer.MULTI_LINE_COMMENT:

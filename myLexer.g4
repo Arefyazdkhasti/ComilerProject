@@ -69,17 +69,17 @@ MULTI_LINE_COMMENT: OPEN_COMMENT (.)*? CLOSE_COMMENT ;
 ONE_LINE_COMMENT: COMMENT (~('\n'))* '\n'? ;
 
 //number decimal and Hex عدد صحیح
-CONST_NUMBER : [0-9]+ |  '0' ('x'|'X') (('0'..'9') | ('a'..'f') | ('A'..'F'))+ ;
+CONST_NUMBER : [1-9][0-9]* |  '0' ('x'|'X') (('0'..'9') | ('a'..'f') | ('A'..'F'))+ ;
 //decimal عدد اعشاری
 Decimal_num : [0-9]+ DOT ('0'..'9')* (('e' | 'E') (PLUS|MINUS)? ('0'..'9')+)?; //Erfan
 
 
-Undifiend_Tokens :(('0'..'9'))+ ID
-                 // | ('-'|'+') (CONST_NUMBER|Decimal_num)
-                  | '.' ('0'..'9')* ('e' | 'E')? (PLUS|MINUS)? ('0'..'9')*;
+/*Undifiend_Tokens :(('0'..'9'))+ ID
+                 //| ('-'|'+') (CONST_NUMBER|Decimal_num)
+                  | '.' ('0'..'9')* ('e' | 'E')? (PLUS|MINUS)? ('0'..'9')*;*/
 
 lexeme : (ONE_LINE_COMMENT | MULTI_LINE_COMMENT
-         |Undifiend_Tokens | ID| STRING| CONST_NUMBER| Decimal_num
+         /*|Undifiend_Tokens*/ | ID| STRING| CONST_NUMBER| Decimal_num
          |T_INT| T_DOUBLE| T_STRING| T_BOOLEAN
          | VOID| NULL| THIS| FOR| WHILE| IF| ELSE
          | RETURN| BREAK| NEW| NEWARRAY| PRINT| READINTEGER| READLINE
